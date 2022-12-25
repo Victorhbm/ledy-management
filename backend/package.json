@@ -2,10 +2,15 @@
   "name": "ledy-management-backend",
   "version": "1.0.0",
   "description": "Ledy management backend",
-  "main": "index.js",
+  "main": "./build/server",
   "scripts": {
+    "build": "npx -y tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "db:reset": "npm run build && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "prestart": "npm run build",
+    "start": "node .",
+    "predev": "npm run db:reset",
+    "dev": "nodemon --watch \"./src/**\" ./src/server.ts"
   },
   "author": "Victor Hugo",
   "license": "ISC",
@@ -14,7 +19,8 @@
     "@types/express": "^4.17.15",
     "@types/node": "^18.11.17",
     "@types/sequelize": "^4.28.14",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.4"

@@ -7,6 +7,7 @@ export default class App {
   constructor() {
     this.app = express();
     this.config();
+    this.routes();
   }
 
   private config():void {
@@ -28,5 +29,9 @@ export default class App {
   private routes():void {
     this.app.use(express.json());
     this.app.use(cors());
+
+    this.app.get('/', (req: express.Request, res: express.Response) => {
+      return res.send('worked')
+    })
   }
 }

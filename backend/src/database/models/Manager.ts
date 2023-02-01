@@ -20,7 +20,7 @@ Manager.init({
 }, {
   sequelize: db,
   tableName: 'Managers',
-  timestamps: false,
+  updatedAt: false,
 });
 
 export default Manager;

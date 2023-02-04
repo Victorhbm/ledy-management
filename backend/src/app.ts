@@ -2,6 +2,7 @@ import * as cors from 'cors';
 import * as express from 'express';
 import RegisterRouter from './routes/RegisterRouter';
 import LoginRouter from './routes/LoginRouter';
+import CategoryRouter from './routes/CategoryRouter';
 import ErrorMiddleware from './middlewares/ErrorMiddleware';
 
 export default class App {
@@ -33,8 +34,9 @@ export default class App {
     this.app.use(express.json());
     this.app.use(cors());
 
-    this.app.use('/register', RegisterRouter)
-    this.app.use('/login', LoginRouter)
+    this.app.use('/register', RegisterRouter);
+    this.app.use('/login', LoginRouter);
+    this.app.use('/category', CategoryRouter);
 
     this.app.use(ErrorMiddleware);
   }

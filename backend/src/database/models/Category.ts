@@ -23,6 +23,5 @@ Category.init({
 Category.hasMany(Subcategory, {
   foreignKey: 'categoryID'
 });
-Subcategory.belongsTo(Category);
 
 export default Category;

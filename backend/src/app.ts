@@ -4,6 +4,7 @@ import RegisterRouter from './routes/RegisterRouter';
 import LoginRouter from './routes/LoginRouter';
 import CategoryRouter from './routes/CategoryRouter';
 import SubcategoryRouter from './routes/SubcategoryRouter';
+import CustomerRouter from './routes/CustomerRouter';
 import ErrorMiddleware from './middlewares/ErrorMiddleware';
 
 export default class App {
@@ -39,6 +40,7 @@ export default class App {
     this.app.use('/login', LoginRouter);
     this.app.use('/category', CategoryRouter);
     this.app.use('/subcategory', SubcategoryRouter);
+    this.app.use('/customer', CustomerRouter);
 
     this.app.use(ErrorMiddleware);
   }

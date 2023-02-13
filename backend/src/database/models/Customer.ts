@@ -23,7 +23,10 @@ Customer.init({
   },
   name: DataTypes.STRING,
   email: DataTypes.STRING,
-  CPF: DataTypes.STRING,
+  CPF: {
+    type: DataTypes.STRING,
+    field: 'CPF'
+  },
   phoneNumber: DataTypes.STRING,
   state: DataTypes.STRING,
   city: DataTypes.STRING,
